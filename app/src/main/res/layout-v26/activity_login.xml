@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/reg_bk"
+    tools:context=".Login">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="96dp"
+        android:text="@string/Welcome_txt"
+        android:textColor="#047531"
+        android:textColorHighlight="#4CAF50"
+        android:textColorHint="#009688"
+        android:textColorLink="#009688"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        app:fontFamily="@font/advent_pro_semibold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.472"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="@string/Login_txt"
+        android:textColor="#83F886"
+        android:textSize="24sp"
+        app:fontFamily="@font/advent_pro_medium"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <EditText
+        android:id="@+id/EmailLogin"
+        android:layout_width="218dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="89dp"
+        android:autofillHints=""
+        android:background="@android:color/holo_green_dark"
+        android:ems="10"
+        android:hint="@string/Email_login_txt"
+        android:inputType="textWebEmailAddress"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <EditText
+        android:id="@+id/LoginPass"
+        android:layout_width="215dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="20dp"
+        android:autofillHints=""
+        android:background="@android:color/holo_green_dark"
+        android:ems="10"
+        android:hint="@string/Pass_word"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/EmailLogin" />
+
+    <Button
+        android:id="@+id/LoginBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="188dp"
+        android:text="@string/login_btn"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/CreateAct"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Creat_act_txt"
+        android:textColor="#82F886"
+        app:layout_constraintBottom_toTopOf="@+id/LoginBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/LoginPass"
+        tools:text="Create Account" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

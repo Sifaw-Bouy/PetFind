@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/reg_bk"
+    tools:context=".Register">
+
+    <EditText
+        android:id="@+id/UserEmail"
+        android:layout_width="265dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="56dp"
+        android:autofillHints=""
+        android:background="@android:color/holo_green_dark"
+        android:ems="10"
+        android:hint="@string/Email_User_txt"
+        android:inputType="textPersonName|textEmailAddress"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="92dp"
+        android:text="@string/Welcome_txt"
+        android:textColor="#047531"
+        android:textColorHighlight="#4CAF50"
+        android:textColorHint="#009688"
+        android:textColorLink="#009688"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        app:fontFamily="@font/advent_pro_semibold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.456"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/Creat_txt"
+        android:textColor="#83F886"
+        android:textSize="24sp"
+        app:fontFamily="@font/advent_pro_medium"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <EditText
+        android:id="@+id/UserName"
+        android:layout_width="265dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="116dp"
+        android:autofillHints=""
+        android:background="@android:color/holo_green_dark"
+        android:ems="10"
+        android:hint="@string/Name_User_txt"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <EditText
+        android:id="@+id/Password"
+        android:layout_width="265dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="176dp"
+        android:autofillHints=""
+        android:background="@android:color/holo_green_dark"
+        android:ems="10"
+        android:hint="@string/Password_txt"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <Button
+        android:id="@+id/Register_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="136dp"
+        android:text="@string/register_txt"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/Login_txt"
+        android:layout_width="195dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/Login_page"
+        android:textColor="#8BFF00"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

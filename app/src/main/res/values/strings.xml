@@ -1,0 +1,63 @@
+<resources>
+    <string name="app_name">PetFind</string>
+    <string name="Welcome_txt">\t\t\t\tWelcome To \n \t\t\t\t\t\t\tPetFind</string>
+    <string name="Creat_txt">Create Account</string>
+    <string name="UserName">Username</string>
+    <string name="Name_User_txt">Username</string>
+    <string name="Email_User_txt">Email</string>
+    <string name="Password_txt">Password</string>
+    <string name="Register_button">Button</string>
+    <string name="register_txt">Create</string>
+    <string name="Login_page">Already Registered? login here</string>
+    <string name="User_name">Username</string>
+    <string name="Pass_word">Password</string>
+    <string name="Login_txt">Login</string>
+    <string name="Login_but">Button</string>
+    <string name="Creat_act_txt">Create Account</string>
+    <string name="login_btn">Login</string>
+    <string name="Welcom_txt">Welcome to Dashboard</string>
+    <string name="Email_login_txt">Email</string>
+    <string name="Text_view">TextView</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_tools">Tools</string>
+    <string name="menu_share">Share</string>
+    <string name="menu_send">Send</string>
+    <string name="Home">Home</string>
+    <string name="Poster">Poster</string>
+    <string name="Search">Search</string>
+    <string name="home_frag">Home</string>
+    <string name="logout_button">Logout</string>
+    <string name="Test_txt">TextView</string>
+    <string name="profile_bg">TODO</string>
+    <string name="profile_pic">TODO</string>
+    <string name="Edit_ProfilePic">TODO</string>
+    <string name="chat_frag">Chat</string>
+    <string name="Chat">Chat</string>
+    <string name="acct_info_text">Account Information</string>
+    <string name="dispname_text">TextView</string>
+    <string name="dispemail_text">TextView</string>
+    <string name="nameicon">TODO</string>
+    <string name="petuploadB">Upload Pet Picture</string>
+    <string name="petimage">TODO</string>
+    <string name="emailicon">TODO</string>
+    <string name="editUserInfo">TODO</string>
+    <string name="updateinfo">Update Information</string>
+    <string name="cancleb"> </string>
+    <string name="namelabel">Name</string>
+    <string name="emaillabel">Name</string>
+    <string name="updatename">update</string>
+    <string name="updateemail">update</string>
+    <string name="passupdate">update</string>
+
+</resources>
