@@ -10,17 +10,13 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.FirebaseFirestore;
 
 public class MainActivity extends AppCompatActivity {
-    private DocumentReference docRef;
-    private FirebaseFirestore fbStore;
-    private String userID;
-    private FirebaseAuth fAuth;
-    private DatabaseReference userRef;
+//    private DocumentReference docRef;
+//    private FirebaseFirestore fbStore;
+//    private String userID;
+//    private FirebaseAuth fAuth;
+//    private DatabaseReference userRef;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
