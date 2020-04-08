@@ -50,10 +50,10 @@ public class HomeFragment extends Fragment{
     private int reqCodeProf = 1;
     private int reqCodePet = 2;
     private Map<String, Object> mapImg= new HashMap<>();
-    private FirebaseAuth fAuth;
-    private FirebaseFirestore fbStore;
-    private FirebaseStorage fStorage;
-    private DocumentReference docRef;
+    private FirebaseAuth fAuth;// this gets the userID
+    private FirebaseFirestore fbStore;// this goes to where all the user uniformation is located
+    private FirebaseStorage fStorage;// this is where the images are located
+    private DocumentReference docRef;//this is what's used to update
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -79,12 +79,12 @@ public class HomeFragment extends Fragment{
 
         //fireBase storage/database
         fAuth = FirebaseAuth.getInstance();
-        userID = fAuth.getCurrentUser().getUid();
-        fStorage = FirebaseStorage.getInstance();
-        fbStore = FirebaseFirestore.getInstance();
-        setProfInfo();
+        userID = fAuth.getCurrentUser().getUid();//getting the userid
+        fStorage = FirebaseStorage.getInstance();//getting the storage for images
+        fbStore = FirebaseFirestore.getInstance();// getting user dict.
+        setProfInfo();//sets the user info everytime this fargment is called
         //
-        UserProfilePicRef = fStorage.getReference().child("Profile Image");
+        UserProfilePicRef = fStorage.getReference().child("Profile Image");//entering image dic.
         EditProfImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -163,7 +163,8 @@ public class HomeFragment extends Fragment{
                     });
 
     }
-
+    /** gets the user info to show into the fargment parts
+    * */
     private void setProfInfo(){
         //go to the database in the users and check if they have profile pic set
         //if so set it whenever the user comes back
@@ -190,10 +191,13 @@ public class HomeFragment extends Fragment{
             });
         }catch (Exception er){}
     }
+    /** setting user/pet images
+     * */
     private void setProfileImages(ImageView pic, Uri picInfo){
         pic.setImageURI(picInfo);
     }
-
+    /** calls the edit user class to edit user info
+     * */
     private  void updateUserInfo(){
         editUserInfo.setOnClickListener(new View.OnClickListener() {
             @Override
