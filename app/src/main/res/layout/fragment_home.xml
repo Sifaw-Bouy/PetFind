@@ -190,7 +190,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/Logout_Btn"
-            app:layout_constraintVertical_bias="0.0"
+            app:layout_constraintVertical_bias="0.02"
             tools:srcCompat="@android:color/transparent" />
 
         <ImageView

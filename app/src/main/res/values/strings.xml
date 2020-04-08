@@ -59,5 +59,6 @@
     <string name="updatename">update</string>
     <string name="updateemail">update</string>
     <string name="passupdate">update</string>
+    <string name="petnametext">petname</string>
 
 </resources>
