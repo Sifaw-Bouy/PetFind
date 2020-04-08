@@ -60,5 +60,7 @@
     <string name="updateemail">update</string>
     <string name="passupdate">update</string>
     <string name="petnametext">petname</string>
+    <string name="nameusertext">TextView</string>
+    <string name="usernamete">username</string>
 
 </resources>
