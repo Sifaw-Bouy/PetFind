@@ -14,13 +14,13 @@
             android:id="@+id/editText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="72dp"
+            android:layout_marginTop="92dp"
             android:autofillHints=""
             android:ems="10"
             android:hint="@string/petnametext"
             android:inputType="textPersonName"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.314"
+            app:layout_constraintHorizontal_bias="0.501"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -29,28 +29,39 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:hint="@string/descriptiontext"
             android:inputType="textPersonName"
-            android:text="Name"
-            tools:layout_editor_absoluteX="55dp"
-            tools:layout_editor_absoluteY="162dp" />
+            app:layout_constraintBottom_toTopOf="@+id/editText3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.501"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editText"
+            app:layout_constraintVertical_bias="0.503" />
 
         <EditText
             android:id="@+id/editText3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:hint="@string/statetext"
             android:inputType="textPersonName"
-            android:text="Name"
-            tools:layout_editor_absoluteX="55dp"
-            tools:layout_editor_absoluteY="260dp" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.501"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editText"
+            app:layout_constraintVertical_bias="0.28" />
 
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="207dp"
             android:layout_height="260dp"
-            app:srcCompat="@drawable/ic_pets_black_24dp"
-            tools:layout_editor_absoluteX="93dp"
-            tools:layout_editor_absoluteY="421dp" />
+            android:contentDescription="@string/petimage"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editText3"
+            app:srcCompat="@drawable/ic_pets_black_24dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </RelativeLayout>
