@@ -38,7 +38,6 @@ public class MainActivity extends AppCompatActivity {
                     switch (menuItem.getItemId()){
                         case R.id.nav_home:
                             selectedFrag = new HomeFragment();
-
                             break;
                         case R.id.nav_poster:
                             selectedFrag = new PosterFragment();
@@ -46,8 +45,6 @@ public class MainActivity extends AppCompatActivity {
                         case R.id.nav_search:
                             selectedFrag = new SearchFragment();
                             break;
-                        case R.id.nav_chat:
-                            selectedFrag = new ChatFragment();
                     }
                     FragmentTransaction transaction= getSupportFragmentManager().beginTransaction();
                     transaction.replace(R.id.fragment_cont, selectedFrag).commit();

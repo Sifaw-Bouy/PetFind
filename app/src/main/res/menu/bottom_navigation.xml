@@ -15,10 +15,5 @@
         android:icon="@drawable/ic_search_icon"
         android:title="@string/Search"
         />
-    <item
-        android:id="@+id/nav_chat"
-        android:icon="@drawable/ic_message_icon"
-        android:title="@string/Chat"
-        />
 
 </menu>

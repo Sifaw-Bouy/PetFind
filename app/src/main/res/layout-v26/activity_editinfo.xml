@@ -120,6 +120,7 @@
             android:backgroundTint="@android:color/holo_orange_dark"
             android:text="@string/updateinfo"
             android:textAlignment="center"
+            android:textColor="#FFFFFF"
             android:textSize="30sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/cardView"

@@ -30,7 +30,9 @@ public class Register extends AppCompatActivity {
     private FirebaseAuth fAuth;
     private FirebaseFirestore fbStore;
     private Map<String, Object> userInfo;
+    private Map<String, Object> userFiler;
     private DocumentReference docRef;
+    private DocumentReference docRefForFiler;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -81,14 +83,23 @@ public class Register extends AppCompatActivity {
                                     .show();
                             userID = fAuth.getCurrentUser().getUid();
                             docRef= fbStore.collection("users").document(userID);
+                            docRefForFiler = fbStore.collection("filers").document(userID);
                             userInfo= new HashMap<>();
+                            userFiler = new HashMap<>();
                             userInfo.put("UserName",userN);
                             userInfo.put("Email",email);
                             userInfo.put("PassWord",passW);
-                            userInfo.put("Profile Image", "https://library.kissclipart.com/20181212/ble/kissclipart-icon-name-svg-clipart-computer-icons-user-d5f11bae643dfd07.jpg");
-                            userInfo.put("User filer","");
+                            userInfo.put("Profile Image", "https://storage.needpix.com/rsynced_images/user-1633249_1280.png");
                             userInfo.put("Pet Image","");
+                            userFiler.put("Show",0);
+                            userFiler.put("ID",userID);
+                            userFiler.put("owner",userN);
+                            userFiler.put("petType","");
+                            userFiler.put("ownerState","");
+                            userFiler.put("description","");
+                            userFiler.put("petPicture","https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Paw-print.svg/1062px-Paw-print.svg.png");
                             docRef.set(userInfo);
+                            docRefForFiler.set(userFiler);
 
                             startActivity(new Intent(getApplicationContext(), MainActivity.class));
 

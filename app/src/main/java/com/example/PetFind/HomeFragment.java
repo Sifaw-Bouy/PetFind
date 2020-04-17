@@ -71,7 +71,7 @@ public class HomeFragment extends Fragment{
         });
         //user information
         userImage = view.findViewById(R.id.ProfilePic);
-        petImg = view.findViewById(R.id.petImage);
+        petImg = view.findViewById(R.id.petImg);
         editUserInfo = view.findViewById(R.id.editUser);
         EditProfImg = view.findViewById(R.id.EditProfilePic);
         userName = view.findViewById(R.id.dispName);

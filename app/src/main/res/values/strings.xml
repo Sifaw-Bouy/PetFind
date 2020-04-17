@@ -42,8 +42,6 @@
     <string name="profile_bg">TODO</string>
     <string name="profile_pic">TODO</string>
     <string name="Edit_ProfilePic">TODO</string>
-    <string name="chat_frag">Chat</string>
-    <string name="Chat">Chat</string>
     <string name="acct_info_text">Account Information</string>
     <string name="dispname_text">TextView</string>
     <string name="dispemail_text">TextView</string>
@@ -62,5 +60,25 @@
     <string name="petnametext">petname</string>
     <string name="nameusertext">TextView</string>
     <string name="usernamete">username</string>
+    <string name="pet_image">pet image</string>
+    <string name="ownername">Owner:</string>
+    <string name="petspeices">Species</string>
+    <string name="petspecies">Species:</string>
+    <string name="stateresidence">state</string>
+    <string name="stateres">State:</string>
+    <string name="pet_information">Pet Information</string>
+    <string name="responds_to">Responds to:</string>
+    <string name="description">Description:</string>
+    <string name="type">Type</string>
+    <string name="calls_to">Name</string>
+    <string name="name">Name</string>
+    <string name="descriptio">Last seen, location, etc</string>
+    <string name="message1">Your pet image will show here if uploaded</string>
+    <string name="upload_filer">Upload</string>
+    <string name="statenameREs">Name</string>
+    <string name="moreinfo">more</string>
+    <string name="contact_information">Contact Information</string>
+    <string name="if_seen_contact">If Seen Contact:</string>
+    <string name="backbuttoncontact">Back</string>
 
 </resources>
