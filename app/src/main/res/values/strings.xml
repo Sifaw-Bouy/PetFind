@@ -57,7 +57,9 @@
     <string name="updatename">update</string>
     <string name="updateemail">update</string>
     <string name="passupdate">update</string>
-    <string name="petnametext">petname</string>
+    <string name="petnametext">Pet name</string>
+    <string name="descriptiontext">Description of pet</string>
+    <string name="statetext">Your state</string>
     <string name="nameusertext">TextView</string>
     <string name="usernamete">username</string>
     <string name="pet_image">pet image</string>
