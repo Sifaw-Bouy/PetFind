@@ -62,74 +62,60 @@
 
             <TextView
                 android:id="@+id/nameCont"
-                android:layout_width="214dp"
-                android:layout_height="32dp"
+                android:layout_width="213dp"
+                android:layout_height="27dp"
                 android:layout_marginStart="15dp"
-                android:layout_marginTop="56dp"
+                android:layout_marginTop="60dp"
                 android:layout_marginEnd="24dp"
+                android:background="@drawable/button_round"
+                android:backgroundTint="@android:color/holo_green_dark"
                 android:text="@string/ownername"
                 android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="18sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.4"
                 app:layout_constraintStart_toEndOf="@+id/textView15"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/contPetN"
-                android:layout_width="149dp"
-                android:layout_height="31dp"
+                android:layout_width="150dp"
+                android:layout_height="27dp"
                 android:layout_marginStart="15dp"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="28dp"
                 android:layout_marginEnd="24dp"
+                android:background="@drawable/button_round"
+                android:backgroundTint="@android:color/holo_green_dark"
                 android:text="@string/responds_to"
                 android:textAlignment="center"
                 android:textAllCaps="false"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/textView16"
-                app:layout_constraintTop_toBottomOf="@+id/nameCont" />
-
-            <ScrollView
-                android:id="@+id/scrollView2"
-                android:layout_width="290dp"
-                android:layout_height="150dp"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="11dp"
-                android:layout_marginEnd="32dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView17">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/contDiscrip"
-                        android:layout_width="match_parent"
-                        android:layout_height="150dp"
-                        android:text="@string/descriptio"
-                        android:textSize="15sp"
-                        android:textStyle="bold|italic" />
-                </LinearLayout>
-            </ScrollView>
-
-            <TextView
-                android:id="@+id/textView21"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="111dp"
-                android:layout_marginTop="196dp"
-                android:layout_marginEnd="111dp"
-                android:text="@string/if_seen_contact"
-                android:textAlignment="center"
+                android:textColor="#090000"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintHorizontal_bias="0.4"
+                app:layout_constraintStart_toEndOf="@+id/textView16"
+                app:layout_constraintTop_toBottomOf="@+id/nameCont" />
+
+            <TextView
+                android:id="@+id/textView21"
+                android:layout_width="155dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="111dp"
+                android:layout_marginTop="34dp"
+                android:layout_marginEnd="111dp"
+                android:background="@drawable/button_round"
+                android:backgroundTint="@android:color/holo_green_dark"
+                android:text="@string/if_seen_contact"
+                android:textAlignment="center"
+                android:textColor="#020000"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/scrollView2" />
+                app:layout_constraintTop_toBottomOf="@+id/contPImg" />
 
             <TextView
                 android:id="@+id/contEmail"
@@ -138,8 +124,11 @@
                 android:layout_marginStart="28dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="28dp"
+                android:background="@drawable/button_round"
+                android:backgroundTint="@android:color/holo_orange_light"
                 android:text="@string/dispemail_text"
                 android:textAlignment="center"
+                android:textColor="#000000"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -147,18 +136,35 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView21" />
 
+            <TextView
+                android:id="@+id/contDiscrip"
+                android:layout_width="300dp"
+                android:layout_height="129dp"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="17dp"
+                android:layout_marginEnd="28dp"
+                android:text="@string/descriptio"
+                android:textColor="#000000"
+                android:scrollbars="vertical"
+                android:textSize="15sp"
+                android:textStyle="bold|italic"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView17" />
+
             <ImageView
                 android:id="@+id/contPImg"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_marginStart="102dp"
-                android:layout_marginTop="12dp"
                 android:layout_marginEnd="102dp"
+                android:layout_marginBottom="124dp"
                 android:background="@drawable/ic_pets_black_24dp"
                 android:contentDescription="@string/pet_image"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/scrollView2" />
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>

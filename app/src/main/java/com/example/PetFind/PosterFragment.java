@@ -49,11 +49,14 @@ public class PosterFragment extends Fragment {
         getPic= db.collection("users").document(userID);
         sendToFiler = view.findViewById(R.id.sendTFiler);//button
         //get pet image in users collections call addonsnapshotlistner
-        //getPic
+        //getPic here:
+
+
 
         //sendFiler to database
         //call the buttons onclicklistener
-        //sendToFiler
+        //sendToFiler here:
+
         return view;
     }
 }

@@ -1,0 +1,116 @@
+//THIS CODE IS FOR POSTER CLASS
+//make sure you have imported: import android.text.TextUtils;
+getPic.addSnapshotListener(new EventListener<DocumentSnapshot>() {
+            @Override
+            public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException e) {
+                if (documentSnapshot != null && documentSnapshot.exists()) {
+                    String url= documentSnapshot.getData().get("Pet Image").toString();
+                    petPicture=url;
+                    System.out.println(petPicture);
+                    Uri uri= Uri.parse(url);
+                    petPic.setImageURI(uri);
+                }
+            }
+        });
+        //sendFiler to database
+        sendToFiler.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final String pName= petname.getText().toString().trim();//send to users collection
+                final String pType= pettype.getText().toString().trim();
+                final String oState= ownstate.getText().toString().trim();
+                final String desCrp= descrip.getText().toString();
+                if(TextUtils.isEmpty(pName)){
+                    petname.setError("Pet name required!");
+                }if(TextUtils.isEmpty(pType)){
+                    pettype.setError("Pet species required!");
+                }if(TextUtils.isEmpty(oState)){
+                    ownstate.setError("State name required!");
+                }if(TextUtils.isEmpty(desCrp)){
+                    descrip.setError("Description name required!");
+                }
+                filerInfo.put("petName",pName);
+                filerInfo.put("petType",pType);
+                filerInfo.put("ownerState",oState);
+                filerInfo.put("description",desCrp);
+                filerInfo.put("petPicture",petPicture);
+                docref.update(filerInfo).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if(task.isSuccessful()){
+                            Toast.makeText(getActivity(),"Filer Uploaded",Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+
+
+            }
+        });
+----------------------------------------
+//THIS CODE IS FOR CONTACT CLASS
+protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.fragment_contact);
+        //variables have already been placed in the source file
+        ...
+
+        /**
+         * this sets the email from the user collection
+         * */
+        getEmail.addSnapshotListener(new EventListener<DocumentSnapshot>() {
+            @Override
+            public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException e) {
+                if (documentSnapshot != null && documentSnapshot.exists()) {
+                    ownerEmail.setText(documentSnapshot.getData().get("Email").toString());
+                }
+            }
+        });
+        /**
+         * this sets the name,species,description
+         * */
+        docRef.addSnapshotListener(new EventListener<DocumentSnapshot>() {
+            @Override
+            public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException e) {
+                if (documentSnapshot != null && documentSnapshot.exists()) {
+                    String url= documentSnapshot.getData().get("petPicture").toString();
+                    Uri uri= Uri.parse(url);
+                    petPc.setImageURI(uri);
+                    ownerName.setText(documentSnapshot.getData().get("owner").toString());
+                    petName.setText(documentSnapshot.getData().get("petName").toString());
+                    disCrp.setText(documentSnapshot.getData().get("description").toString());
+                    disCrp.setMovementMethod(new ScrollingMovementMethod());
+                }
+            }
+        });
+
+    }
+-----------------------------------------
+//THIS IS FOR THE SEARCH
+searchInput.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                filter(s.toString());
+            }
+        });
+private void filter(String txt) {
+        filteredList = new ArrayList<>();
+        for(Usermodel user: userFilerInfo){
+            if(user.getOwner().toLowerCase().contains(txt.toLowerCase()) ||
+                    user.getPetType().toLowerCase().contains(txt.toLowerCase()) ||
+                    user.getOwnerState().toLowerCase().contains(txt.toLowerCase())) {
+
+                filteredList.add(user);
+            }
+        }
+        usAdapter.filterList(filteredList);
+    }

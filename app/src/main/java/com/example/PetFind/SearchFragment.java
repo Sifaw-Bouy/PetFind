@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -25,19 +26,27 @@ import java.util.List;
 public class SearchFragment extends Fragment implements UserAdapter.OnUserListener {
     private RecyclerView mRecView;
     private RecyclerView.Adapter mAdapter;
+    private UserAdapter usAdapter;
     private RecyclerView.LayoutManager mLayManger;
-    public ArrayList<Usermodel> us;
+    public ArrayList<Usermodel> userFilerInfo;
+    public ArrayList<Usermodel> filteredList;
+    //firebase
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private CollectionReference docref;
-
+    //search filter
+    private EditText searchInput;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_search, container, false);
         //here I need to go into firestorage and grap the filer which has the infromation
         // then set the information to each new instance of Useritems
-        ArrayList<Usermodel> userinfo = new ArrayList<>();
+        ArrayList<Usermodel> userInfom = new ArrayList<>();//this acts as a dummy list
         docref = db.collection("filers");
+        searchInput = view.findViewById(R.id.searchFilter);
+        //add the on addTextChangeListener here and use afterTextCHanged then call filter
+        //......
+
         docref.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             ArrayList<Usermodel> userInfo = new ArrayList<>();
             @Override
@@ -63,10 +72,11 @@ public class SearchFragment extends Fragment implements UserAdapter.OnUserListen
                         }
                     }
                 }
-                us=userInfo;
+                userFilerInfo=userInfo;
                 mAdapter = new UserAdapter(userInfo,SearchFragment.this);
+                usAdapter= (UserAdapter) mAdapter;
                 mRecView.setLayoutManager(mLayManger);
-                mRecView.setAdapter(mAdapter);
+                mRecView.setAdapter(usAdapter);
 
             }
 
@@ -74,17 +84,24 @@ public class SearchFragment extends Fragment implements UserAdapter.OnUserListen
         mRecView = view.findViewById(R.id.userFeedView);
         mRecView.setHasFixedSize(true);
         mLayManger= new LinearLayoutManager(getActivity());
-        mAdapter= new UserAdapter(userinfo,this);
+        mAdapter= new UserAdapter(userInfom,this);
         //need this so it can actually show the information
         mRecView.setLayoutManager(mLayManger);
         mRecView.setAdapter(mAdapter);
+
         return view;
     }
+    /**
+     *  add filter method here
+     * */
+    //......
+
     //takes you the contact information activity
     @Override
     public void onUserClick(int position) {
         Intent intent=new Intent(getActivity(),ContactFragment.class);
-        intent.putExtra("userKey",us.get(position));
+        intent.putExtra("userKey",userFilerInfo.get(position));
         startActivity(intent);
     }
+
 }
