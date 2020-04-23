@@ -47,7 +47,7 @@ getPic.addSnapshotListener(new EventListener<DocumentSnapshot>() {
             }
         });
 ----------------------------------------
-//THIS CODE IS FOR CONTACT CLASS-ThanTham
+//THIS CODE IS FOR CONTACT CLASS-Thanhtam
 protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_contact);
