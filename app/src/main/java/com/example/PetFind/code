@@ -1,4 +1,4 @@
-//THIS CODE IS FOR POSTER CLASS
+//THIS CODE IS FOR POSTER CLASS-Annie
 //make sure you have imported: import android.text.TextUtils;
 getPic.addSnapshotListener(new EventListener<DocumentSnapshot>() {
             @Override
@@ -47,7 +47,7 @@ getPic.addSnapshotListener(new EventListener<DocumentSnapshot>() {
             }
         });
 ----------------------------------------
-//THIS CODE IS FOR CONTACT CLASS
+//THIS CODE IS FOR CONTACT CLASS-ThanTham
 protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_contact);
@@ -85,7 +85,7 @@ protected void onCreate(@Nullable Bundle savedInstanceState) {
 
     }
 -----------------------------------------
-//THIS IS FOR THE SEARCH
+//THIS IS FOR THE SEARCH-Vincent
 searchInput.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
