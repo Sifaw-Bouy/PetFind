@@ -2,6 +2,8 @@ package com.example.PetFind;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -45,7 +47,22 @@ public class SearchFragment extends Fragment implements UserAdapter.OnUserListen
         docref = db.collection("filers");
         searchInput = view.findViewById(R.id.searchFilter);
         //add the on addTextChangeListener here and use afterTextCHanged then call filter
-        //......
+        searchInput.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                filter(s.toString());
+            }
+        });
 
         docref.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             ArrayList<Usermodel> userInfo = new ArrayList<>();
@@ -94,7 +111,18 @@ public class SearchFragment extends Fragment implements UserAdapter.OnUserListen
     /**
      *  add filter method here
      * */
-    //......
+    private void filter(String txt) {
+        filteredList = new ArrayList<>();
+        for(Usermodel user: userFilerInfo){
+            if(user.getOwner().toLowerCase().contains(txt.toLowerCase()) ||
+                    user.getPetType().toLowerCase().contains(txt.toLowerCase()) ||
+                    user.getOwnerState().toLowerCase().contains(txt.toLowerCase())) {
+
+                filteredList.add(user);
+            }
+        }
+        usAdapter.filterList(filteredList);
+    }
 
     //takes you the contact information activity
     @Override

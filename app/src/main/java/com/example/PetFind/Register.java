@@ -97,7 +97,7 @@ public class Register extends AppCompatActivity {
                             userFiler.put("petType","");
                             userFiler.put("ownerState","");
                             userFiler.put("description","");
-                            userFiler.put("petPicture","https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Paw-print.svg/1062px-Paw-print.svg.png");
+                            userFiler.put("petPicture","");
                             docRef.set(userInfo);
                             docRefForFiler.set(userFiler);
 

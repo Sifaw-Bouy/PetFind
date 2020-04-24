@@ -58,7 +58,9 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
         holder.ownerN.setText(currentUser.getOwner());
         holder.petType.setText(currentUser.getPetType());
         holder.ownerState.setText(currentUser.getOwnerState());
-        holder.petPicture.setImageURI(currentUser.getPetPicture());
+        try {
+            holder.petPicture.setImageURI(currentUser.getPetPicture());
+        }catch (NullPointerException e){}
     }
 
     @Override

@@ -23,7 +23,7 @@ import java.util.Map;
 
 public class EditInfo extends AppCompatActivity {
     private EditText name,email,pass;
-    private Button upName,upEmail,upPass;
+    private Button upName,upEmail,upPass,removeP;
     private Button returnHome;
     private String userID;
     FirebaseAuth fAuth;
@@ -31,6 +31,7 @@ public class EditInfo extends AppCompatActivity {
 
     private Map<String, Object> userInfo = new HashMap<>();//to put into database dictionary
     private DocumentReference docRef;//the database dictonary
+    private DocumentReference remPos;
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -43,6 +44,7 @@ public class EditInfo extends AppCompatActivity {
         upEmail = findViewById(R.id.emailUpd);
         upPass = findViewById(R.id.passUpd);
         returnHome = findViewById(R.id.goHome);
+        removeP= findViewById(R.id.deleteFlier);
         //firebase
         fAuth = FirebaseAuth.getInstance();
         userID = fAuth.getCurrentUser().getUid();
@@ -81,7 +83,12 @@ public class EditInfo extends AppCompatActivity {
 
             }
         });
-
+        removeP.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                removePost();
+            }
+        });
         setReturnHome();
     }
     private void setReturnHome(){
@@ -117,5 +124,21 @@ public class EditInfo extends AppCompatActivity {
             });
 
         }catch (Exception e){}
+    }
+    private void removePost(){
+        remPos = fbStore.collection("filers").document(userID);
+        Map<String, Object> rem= new HashMap<>();
+        rem.put("Show",0);
+        remPos.update(rem).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if(task.isSuccessful()){
+                    Toast.makeText(getApplicationContext(),
+                            "Post is Removed", Toast.LENGTH_SHORT).show();
+                }else{
+                    //error
+                }
+            }
+        });
     }
 }

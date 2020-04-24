@@ -21,6 +21,8 @@
             android:layout_marginStart="108dp"
             android:layout_marginTop="24dp"
             android:text="@string/UserName"
+            android:ellipsize="end"
+            android:maxLines="1"
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
@@ -32,6 +34,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="108dp"
             android:text="@string/petspecies"
+            android:ellipsize="end"
+            android:maxLines="1"
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
@@ -43,6 +47,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="108dp"
             android:text="@string/stateresidence"
+            android:ellipsize="end"
+            android:maxLines="1"
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
@@ -56,14 +62,14 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
-            android:background="@drawable/ic_pets_black_24dp"
             android:contentDescription="@string/pet_image"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toEndOf="@+id/ownerName"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/ic_pets_black_24dp" />
 
         <TextView
             android:id="@+id/textView4"

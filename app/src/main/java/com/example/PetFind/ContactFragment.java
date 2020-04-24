@@ -1,6 +1,8 @@
 package com.example.PetFind;
 
+import android.net.Uri;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -8,7 +10,10 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 
 public class ContactFragment extends AppCompatActivity {
     private TextView ownerName,petName,disCrp,ownerEmail;
@@ -45,12 +50,31 @@ public class ContactFragment extends AppCompatActivity {
         /**
          * this sets the email from the user collection. call getEmail
          * */
-        //...
-
+        getEmail.addSnapshotListener(new EventListener<DocumentSnapshot>() {
+            @Override
+            public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException e) {
+                if (documentSnapshot != null && documentSnapshot.exists()) {
+                    ownerEmail.setText(documentSnapshot.getData().get("Email").toString());
+                }
+            }
+        });
         /**
          * this sets the name,species,description call docRef
          * */
-        //...
+        docRef.addSnapshotListener(new EventListener<DocumentSnapshot>() {
+            @Override
+            public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException e) {
+                if (documentSnapshot != null && documentSnapshot.exists()) {
+                    String url= documentSnapshot.getData().get("petPicture").toString();
+                    Uri uri= Uri.parse(url);
+                    petPc.setImageURI(uri);
+                    ownerName.setText(documentSnapshot.getData().get("owner").toString());
+                    petName.setText(documentSnapshot.getData().get("petName").toString());
+                    disCrp.setText(documentSnapshot.getData().get("description").toString());
+                    disCrp.setMovementMethod(new ScrollingMovementMethod());
+                }
+            }
+        });
 
     }
 }

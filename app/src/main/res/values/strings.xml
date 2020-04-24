@@ -83,6 +83,8 @@
     <string name="if_seen_contact">If Seen Contact:</string>
     <string name="backbuttoncontact">Back</string>
     <string name="feed_page">FEED PAGE</string>
-    <string name="search_by_name_type_state">Search by name, type, state</string>
+    <string name="search_by_name_type_state">Search by name, species, state</string>
+    <string name="remove_post">Remove Post</string>
+    <string name="todo">TODO</string>
 
 </resources>

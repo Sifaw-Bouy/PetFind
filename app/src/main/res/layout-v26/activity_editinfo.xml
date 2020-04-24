@@ -109,6 +109,18 @@
                     app:layout_constraintTop_toBottomOf="@+id/editPass"
                     tools:text="Update" />
 
+                <Button
+                    android:id="@+id/deleteFlier"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="109dp"
+                    android:layout_marginEnd="110dp"
+                    android:layout_marginBottom="41dp"
+                    android:text="@string/remove_post"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
 
@@ -133,7 +145,7 @@
             android:layout_width="46dp"
             android:layout_height="46dp"
             android:background="@drawable/ic_home_icon"
-            android:backgroundTint="@color/common_google_signin_btn_text_dark_default"
+            android:backgroundTint="#FF9800"
             android:text="@string/cancleb"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

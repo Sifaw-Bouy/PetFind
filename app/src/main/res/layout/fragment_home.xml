@@ -74,6 +74,8 @@
                     android:layout_marginEnd="156dp"
                     android:background="@drawable/button_round"
                     android:backgroundTint="@android:color/holo_green_dark"
+                    android:ellipsize="end"
+                    android:maxLines="1"
                     android:text="@string/dispname_text"
                     android:textAlignment="center"
                     android:textColor="@color/colorAccent"
@@ -99,6 +101,8 @@
                     android:textAlignment="center"
                     android:textColor="@color/colorAccent"
                     android:textSize="24sp"
+                    android:ellipsize="end"
+                    android:maxLines="1"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.508"
@@ -163,7 +167,7 @@
                 <ImageView
                     android:id="@+id/editUser"
                     android:layout_width="36dp"
-                    android:layout_height="34dp"
+                    android:layout_height="36dp"
                     android:background="@drawable/button_round"
                     android:backgroundTint="@android:color/holo_red_light"
                     android:contentDescription="@string/editUserInfo"
@@ -171,7 +175,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/viewinfo"
-                    app:srcCompat="@drawable/ic_edit_profilebgpic" />
+                    app:srcCompat="@drawable/ic_settings_white_24dp" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>

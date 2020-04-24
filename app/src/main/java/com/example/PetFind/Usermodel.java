@@ -11,10 +11,11 @@ public class Usermodel implements Parcelable {
     private String ownerState;
     private String petPicture;
     private String userID;
-    public Usermodel(String owner, String petType, String ownerState) {
+    public Usermodel(String owner, String petType, String ownerState,String userID) {
         this.owner = owner;
         this.petType = petType;
         this.ownerState = ownerState;
+        this.userID = userID;
     }
     public Usermodel(String owner, String petType, String ownerState, String petPicture,String userID) {
         this.owner = owner;
@@ -53,7 +54,13 @@ public class Usermodel implements Parcelable {
     }
 
     public Uri getPetPicture() {
-        return Uri.parse(petPicture);
+        Uri uri=null;
+        if(petPicture.equals("")){
+
+        }else {
+            uri=Uri.parse(petPicture);
+        }
+        return uri;
     }
 
     public String getOwnerState() {
