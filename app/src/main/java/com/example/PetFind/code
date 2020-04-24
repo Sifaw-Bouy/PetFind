@@ -1,4 +1,4 @@
-//THIS CODE IS FOR POSTER CLASS
+//THIS CODE IS FOR POSTER CLASS-Annie/ assit. Sifaw
 //make sure you have imported: import android.text.TextUtils;
 getPic.addSnapshotListener(new EventListener<DocumentSnapshot>() {
             @Override
@@ -47,7 +47,7 @@ getPic.addSnapshotListener(new EventListener<DocumentSnapshot>() {
             }
         });
 ----------------------------------------
-//THIS CODE IS FOR CONTACT CLASS
+//THIS CODE IS FOR CONTACT CLASS-Thanhtam/assit. Sifaw
 protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_contact);
@@ -85,7 +85,7 @@ protected void onCreate(@Nullable Bundle savedInstanceState) {
 
     }
 -----------------------------------------
-//THIS IS FOR THE SEARCH
+//THIS IS FOR THE SEARCH-Vincent/Sifaw
 searchInput.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -113,4 +113,54 @@ private void filter(String txt) {
             }
         }
         usAdapter.filterList(filteredList);
+    }
+-----------------------------
+//THIS IS FOR THE FEED-Sifaw/Vincent
+ArrayList<Usermodel> userInfom = new ArrayList<>();//this acts as a dummy list
+docref = db.collection("filers");
+searchInput = view.findViewById(R.id.searchFilter);
+...Vincent's code
+ docref.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            ArrayList<Usermodel> userInfo = new ArrayList<>();
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                //feed information to display
+                if(task.isSuccessful()){
+                    String name;
+                    String pet;
+                    String stat;
+                    String pic;
+                    String id;
+                    int index=0;
+                    List<DocumentSnapshot> userList = task.getResult().getDocuments();
+                    for(index=0;index<userList.size();index++){
+                        int add = userList.get(index).get("Show").hashCode();
+                        if(add==1) {//only shows filers that are needed
+                            name = userList.get(index).get("owner").toString();
+                            pet = userList.get(index).get("petType").toString();
+                            stat = userList.get(index).get("ownerState").toString();
+                            pic = userList.get(index).get("petPicture").toString();
+                            id = userList.get(index).get("ID").toString();
+                            userInfo.add(new Usermodel(name, pet, stat, pic,id));
+                        }
+                    }
+                }
+                userFilerInfo=userInfo;
+                mAdapter = new UserAdapter(userInfo,SearchFragment.this);
+                usAdapter= (UserAdapter) mAdapter;
+                mRecView.setLayoutManager(mLayManger);
+                mRecView.setAdapter(usAdapter);
+
+            }
+
+        });
+        mRecView = view.findViewById(R.id.userFeedView);
+        mRecView.setHasFixedSize(true);
+        mLayManger= new LinearLayoutManager(getActivity());
+        mAdapter= new UserAdapter(userInfom,this);
+        //need this so it can actually show the information
+        mRecView.setLayoutManager(mLayManger);
+        mRecView.setAdapter(mAdapter);
+
+        return view;
     }

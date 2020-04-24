@@ -57,6 +57,22 @@ public class PosterFragment extends Fragment {
         getPic= db.collection("users").document(userID);
         sendToFiler = view.findViewById(R.id.sendTFiler);//button
         //get pet image in users collections call addonsnapshotlistner
+        getPic.addSnapshotListener(new EventListener<DocumentSnapshot>() {
+            @Override
+            public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException e) {
+                if (e != null) {
+                    System.err.println("Listen failed: " + e);
+                    return;
+                }
+
+                if (documentSnapshot != null && documentSnapshot.exists()) {
+                    System.out.println("Current data: " + documentSnapshot.getData());
+                } else {
+                    System.out.print("Current data: null");
+                }
+            }
+        });
+
         //getPic here:
         getPic.addSnapshotListener(new EventListener<DocumentSnapshot>() {
             @Override
