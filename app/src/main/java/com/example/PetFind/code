@@ -1,4 +1,5 @@
 //THIS CODE IS FOR THE POSTER CLASS-Annie/ assit. Sifaw
+//I did this
 //make sure you have imported: import android.text.TextUtils;
 getPic.addSnapshotListener(new EventListener<DocumentSnapshot>() {
             @Override
