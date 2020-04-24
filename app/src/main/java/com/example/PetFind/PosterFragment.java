@@ -57,6 +57,7 @@ public class PosterFragment extends Fragment {
         docref= db.collection("filers").document(userID);
         getPic= db.collection("users").document(userID);
         sendToFiler = view.findViewById(R.id.sendTFiler); // button
+
         // get pet image in users collections - call addsnapshotlistener
         // this method allows us to listen for changes in database
         getPic.addSnapshotListener(new EventListener<DocumentSnapshot>() {
@@ -70,6 +71,7 @@ public class PosterFragment extends Fragment {
                 }
             }
         });
+
         // send poster to database when button is clicked
         sendToFiler.setOnClickListener(new View.OnClickListener() {
             @Override
