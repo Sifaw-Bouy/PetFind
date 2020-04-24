@@ -114,10 +114,7 @@ public class SearchFragment extends Fragment implements UserAdapter.OnUserListen
     private void filter(String txt) {
         filteredList = new ArrayList<>();
         for(Usermodel user: userFilerInfo){
-            if(user.getOwner().toLowerCase().contains(txt.toLowerCase()) ||
-                    user.getPetType().toLowerCase().contains(txt.toLowerCase()) ||
-                    user.getOwnerState().toLowerCase().contains(txt.toLowerCase())) {
-
+            if(user.getOwner().toLowerCase().contains(txt.toLowerCase()) || user.getPetType().toLowerCase().contains(txt.toLowerCase()) || user.getOwnerState().toLowerCase().contains(txt.toLowerCase())) {
                 filteredList.add(user);
             }
         }
