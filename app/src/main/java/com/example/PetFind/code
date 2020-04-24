@@ -117,7 +117,7 @@ private void filter(String txt) {
 -----------------------------
 //THIS IS FOR THE FEED-Sifaw/Vincent
 ArrayList<Usermodel> userInfom = new ArrayList<>();//this acts as a dummy list
-docref = db.collection("filers");
+docref = db.collection("filers");d
 searchInput = view.findViewById(R.id.searchFilter);
 ...Vincent's code
  docref.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
