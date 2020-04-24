@@ -1,4 +1,4 @@
-// TEST COMMENT  
+// TEST COMMENT
 //THIS CODE IS FOR POSTER CLASS-Annie/ assit. Sifaw
 //make sure you have imported: import android.text.TextUtils;
 getPic.addSnapshotListener(new EventListener<DocumentSnapshot>() {
