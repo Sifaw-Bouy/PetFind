@@ -1,5 +1,5 @@
-//THIS CODE IS FOR THE POSTER CLASS-Annie/ assit. Sifaw
-//I did this
+// TEST COMMENT  
+//THIS CODE IS FOR POSTER CLASS-Annie/ assit. Sifaw
 //make sure you have imported: import android.text.TextUtils;
 getPic.addSnapshotListener(new EventListener<DocumentSnapshot>() {
             @Override
@@ -13,7 +13,7 @@ getPic.addSnapshotListener(new EventListener<DocumentSnapshot>() {
                 }
             }
         });
-        //send poster to database
+        //sendFiler to database
         sendToFiler.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
