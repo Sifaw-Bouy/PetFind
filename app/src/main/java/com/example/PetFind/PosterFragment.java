@@ -27,6 +27,7 @@ import com.google.firebase.firestore.FirebaseFirestoreException;
 import java.util.HashMap;
 import java.util.Map;
 
+// this class controls the poster page
 public class PosterFragment extends Fragment {
     private EditText petname,pettype,ownstate,descrip;
     private ImageView petPic;
