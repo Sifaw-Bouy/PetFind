@@ -55,25 +55,9 @@ public class PosterFragment extends Fragment {
         userID=fAuth.getCurrentUser().getUid();
         docref= db.collection("filers").document(userID);
         getPic= db.collection("users").document(userID);
-        sendToFiler = view.findViewById(R.id.sendTFiler);//button
+        sendToFiler = view.findViewById(R.id.sendTFiler); // button
         // get pet image in users collections - call addsnapshotlistener
-        getPic.addSnapshotListener(new EventListener<DocumentSnapshot>() {
-            @Override
-            public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException e) {
-                if (e != null) {
-                    System.err.println("Listen failed: " + e);
-                    return;
-                }
-
-                if (documentSnapshot != null && documentSnapshot.exists()) {
-                    System.out.println("Current data: " + documentSnapshot.getData());
-                } else {
-                    System.out.print("Current data: null");
-                }
-            }
-        });
-
-        // getPic here:
+        // this method allows us to listen for changes in database
         getPic.addSnapshotListener(new EventListener<DocumentSnapshot>() {
             @Override
             public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException e) {
@@ -81,11 +65,11 @@ public class PosterFragment extends Fragment {
                     String url= documentSnapshot.getData().get("Pet Image").toString();
                     petPicture=url;
                     Uri uri= Uri.parse(url);
-                    petPic.setImageURI(uri);
+                    petPic.setImageURI(uri); // set
                 }
             }
         });
-        // send poster to database
+        // send poster to database when button is clicked
         sendToFiler.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -93,6 +77,7 @@ public class PosterFragment extends Fragment {
                 final String pType= pettype.getText().toString().trim();
                 final String oState= ownstate.getText().toString().trim();
                 final String desCrp= descrip.getText().toString();
+                // exception handling for bad inputs - no input provided
                 if(TextUtils.isEmpty(pName)){
                     petname.setError("Pet name required!");
                 }if(TextUtils.isEmpty(pType)){
@@ -102,6 +87,7 @@ public class PosterFragment extends Fragment {
                 }if(TextUtils.isEmpty(desCrp)){
                     descrip.setError("Description name required!");
                 }
+                // send to database
                 filerInfo.put("Show",1);
                 filerInfo.put("petName",pName);
                 filerInfo.put("petType",pType);
