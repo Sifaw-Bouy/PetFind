@@ -42,21 +42,21 @@ public class PosterFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_poster, container, false);
-        //getting ids
+        // get ids
         petname= view.findViewById(R.id.petNameID);
         pettype= view.findViewById(R.id.speciesID);
         ownstate= view.findViewById(R.id.statResID);
         descrip= view.findViewById(R.id.descripID);
         petPic= view.findViewById(R.id.petPicID);
 
-        //firebase
+        // firebase
         db= FirebaseFirestore.getInstance();
         fAuth=FirebaseAuth.getInstance();
         userID=fAuth.getCurrentUser().getUid();
         docref= db.collection("filers").document(userID);
         getPic= db.collection("users").document(userID);
         sendToFiler = view.findViewById(R.id.sendTFiler);//button
-        //get pet image in users collections call addonsnapshotlistner
+        // get pet image in users collections - call addsnapshotlistener
         getPic.addSnapshotListener(new EventListener<DocumentSnapshot>() {
             @Override
             public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException e) {
@@ -73,7 +73,7 @@ public class PosterFragment extends Fragment {
             }
         });
 
-        //getPic here:
+        // getPic here:
         getPic.addSnapshotListener(new EventListener<DocumentSnapshot>() {
             @Override
             public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException e) {
@@ -85,7 +85,7 @@ public class PosterFragment extends Fragment {
                 }
             }
         });
-        //sendFiler to database
+        // send poster to database
         sendToFiler.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
