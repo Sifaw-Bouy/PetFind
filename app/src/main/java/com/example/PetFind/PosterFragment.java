@@ -27,6 +27,7 @@ import com.google.firebase.firestore.FirebaseFirestoreException;
 import java.util.HashMap;
 import java.util.Map;
 
+// this class controls the poster page
 public class PosterFragment extends Fragment {
     private EditText petname,pettype,ownstate,descrip;
     private ImageView petPic;
@@ -42,38 +43,23 @@ public class PosterFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_poster, container, false);
-        //getting ids
+        // get ids
         petname= view.findViewById(R.id.petNameID);
         pettype= view.findViewById(R.id.speciesID);
         ownstate= view.findViewById(R.id.statResID);
         descrip= view.findViewById(R.id.descripID);
         petPic= view.findViewById(R.id.petPicID);
 
-        //firebase
+        // firebase
         db= FirebaseFirestore.getInstance();
         fAuth=FirebaseAuth.getInstance();
         userID=fAuth.getCurrentUser().getUid();
         docref= db.collection("filers").document(userID);
         getPic= db.collection("users").document(userID);
-        sendToFiler = view.findViewById(R.id.sendTFiler);//button
-        //get pet image in users collections call addonsnapshotlistner
-        getPic.addSnapshotListener(new EventListener<DocumentSnapshot>() {
-            @Override
-            public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException e) {
-                if (e != null) {
-                    System.err.println("Listen failed: " + e);
-                    return;
-                }
+        sendToFiler = view.findViewById(R.id.sendTFiler); // button
 
-                if (documentSnapshot != null && documentSnapshot.exists()) {
-                    System.out.println("Current data: " + documentSnapshot.getData());
-                } else {
-                    System.out.print("Current data: null");
-                }
-            }
-        });
-
-        //getPic here:
+        // get pet image in users collections - call addsnapshotlistener
+        // this method allows us to listen for changes in database
         getPic.addSnapshotListener(new EventListener<DocumentSnapshot>() {
             @Override
             public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException e) {
@@ -81,11 +67,12 @@ public class PosterFragment extends Fragment {
                     String url= documentSnapshot.getData().get("Pet Image").toString();
                     petPicture=url;
                     Uri uri= Uri.parse(url);
-                    petPic.setImageURI(uri);
+                    petPic.setImageURI(uri); // set
                 }
             }
         });
-        //sendFiler to database
+
+        // send poster to database when button is clicked
         sendToFiler.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -93,6 +80,7 @@ public class PosterFragment extends Fragment {
                 final String pType= pettype.getText().toString().trim();
                 final String oState= ownstate.getText().toString().trim();
                 final String desCrp= descrip.getText().toString();
+                // exception handling for bad inputs - no input provided
                 if(TextUtils.isEmpty(pName)){
                     petname.setError("Pet name required!");
                 }if(TextUtils.isEmpty(pType)){
@@ -102,6 +90,7 @@ public class PosterFragment extends Fragment {
                 }if(TextUtils.isEmpty(desCrp)){
                     descrip.setError("Description name required!");
                 }
+                // send to database
                 filerInfo.put("Show",1);
                 filerInfo.put("petName",pName);
                 filerInfo.put("petType",pType);
