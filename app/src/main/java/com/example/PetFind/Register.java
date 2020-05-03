@@ -89,7 +89,7 @@ public class Register extends AppCompatActivity {
                             userInfo.put("UserName",userN);
                             userInfo.put("Email",email);
                             userInfo.put("PassWord",passW);
-                            userInfo.put("Profile Image", "https://storage.needpix.com/rsynced_images/user-1633249_1280.png");
+                            userInfo.put("Profile Image", "");
                             userInfo.put("Pet Image","");
                             userFiler.put("Show",0);
                             userFiler.put("ID",userID);

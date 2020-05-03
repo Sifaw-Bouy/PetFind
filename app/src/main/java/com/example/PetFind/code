@@ -115,7 +115,7 @@ private void filter(String txt) {
         usAdapter.filterList(filteredList);
     }
 -----------------------------
-//THIS IS FOR THE FEED-Sifaw/Vincent
+//THIS IS FOR THE FEED-Vincent/Sifaw
 ArrayList<Usermodel> userInfom = new ArrayList<>();//this acts as a dummy list
 docref = db.collection("filers");d
 searchInput = view.findViewById(R.id.searchFilter);
