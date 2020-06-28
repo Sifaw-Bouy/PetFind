@@ -91,21 +91,23 @@ public class PosterFragment extends Fragment {
                     descrip.setError("Description name required!");
                 }
                 // send to database
-                filerInfo.put("Show",1);
-                filerInfo.put("petName",pName);
-                filerInfo.put("petType",pType);
-                filerInfo.put("ownerState",oState);
-                filerInfo.put("description",desCrp);
-                filerInfo.put("petPicture",petPicture);
-                docref.update(filerInfo).addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        if(task.isSuccessful()){
-                            Toast.makeText(getActivity(),"Filer Uploaded",Toast.LENGTH_SHORT).show();
+                if(!TextUtils.isEmpty(pName) && !TextUtils.isEmpty(pType)
+                        && !TextUtils.isEmpty(oState) && !TextUtils.isEmpty(desCrp)) {
+                    filerInfo.put("Show", 1);
+                    filerInfo.put("petName", pName);
+                    filerInfo.put("petType", pType);
+                    filerInfo.put("ownerState", oState);
+                    filerInfo.put("description", desCrp);
+                    filerInfo.put("petPicture", petPicture);
+                    docref.update(filerInfo).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            if (task.isSuccessful()) {
+                                Toast.makeText(getActivity(), "Poster Uploaded", Toast.LENGTH_SHORT).show();
+                            }
                         }
-                    }
-                });
-
+                    });
+                }else{Toast.makeText(getActivity(),"Information Missing!",Toast.LENGTH_SHORT).show();}
 
             }
         });
